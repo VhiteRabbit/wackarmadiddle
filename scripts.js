@@ -102,6 +102,9 @@ AFRAME.registerComponent('armadillo', {
 	
   onClicked: function (){
 	document.querySelector('a-scene').querySelector('#score').components.score.increment();
+	var whackSound = document.querySelector('a-scene').querySelector('#whack-sound');
+	whackSound.setAttribute('position', this.el.getAttribute('position'));
+	whackSound.components.sound.playSound();
 	this.destroy();
   },
 
@@ -121,6 +124,11 @@ AFRAME.registerComponent('armadillo', {
 		rand = Math.floor(Math.random() * positions.length);
 	}
 	this.el.setAttribute('position', positions[rand]);
+	
+	var giggleSound = document.querySelector('a-scene').querySelector('#giggle-sound');
+	giggleSound.setAttribute('position', positions[rand]);
+	giggleSound.components.sound.playSound();
+	
 	spawnedAtPosition[rand] = true;		
 	this.el.setAttribute('index', rand);
 	
@@ -163,7 +171,7 @@ AFRAME.registerComponent('start-button', {
 	}
 });
 
-var timer =  5000;
+var timer =  60000;
 
 AFRAME.registerComponent('timer', {
 	schema: {default: false},
