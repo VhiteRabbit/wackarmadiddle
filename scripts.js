@@ -52,7 +52,7 @@ AFRAME.registerComponent('game-manager', {
   schema: {},
   init: function () {
 
-	for(var i = 0; i < positions.length; i++){
+	for(var i = 0; i < 20; i++){
 		var el = document.createElement('a-gltf-model');
 		var sceneEl = document.querySelector('a-scene');
 		
@@ -62,7 +62,7 @@ AFRAME.registerComponent('game-manager', {
 			rand = Math.floor(Math.random() * positions.length);
 		}
 		
-		el.setAttribute('class','clickable');
+		el.setAttribute('class','clickable ');
 		el.setAttribute('armadillo','');
 		el.setAttribute('position', idlePosition);
 		el.setAttribute('look-at','#origin');
@@ -163,7 +163,7 @@ AFRAME.registerComponent('start-button', {
 	}
 });
 
-var timer = 60000;
+var timer =  5000;
 
 AFRAME.registerComponent('timer', {
 	schema: {default: false},
@@ -173,9 +173,10 @@ AFRAME.registerComponent('timer', {
 			timer -= timeDelta;
 			el.setAttribute("value", GetTimeText(timer));
 		}
-		if(timer <= 0){
+		if(timer <= 0 && gameStarted){
 			StopTimer();
 			EndGame();
+			el.setAttribute("value", "Fin!");
 		}
 	}
 });
@@ -196,6 +197,19 @@ StartGame = function(){
 
 EndGame = function(){
 	gameStarted = false;
+
+	var sceneEl = document.querySelector('a-scene');
+
+	
+	var armadillos = sceneEl.querySelectorAll('[armadillo]');
+/* TODO: destroy all armadillos that are still alive
+	console.log(armadillos.length)
+	
+	for(var i = 0; i < armadillos.length; i++){
+		if(armadillos[i].components.armadillo.alive === true)
+			armadillos[i].components.armadillo.destroy();
+
+	}*/
 }
 
 ResetTimer = function (){
@@ -211,7 +225,7 @@ StopTimer = function (){
 }
 
 GetTimeText = function (time) {
-	var secs = Math.floor(time / 1000);
+	var secs = Math.ceil(time / 1000);
 	var mins = Math.floor(secs / 60);
 	secs = secs % 60;
 	return mins + ":" + secs.pad();

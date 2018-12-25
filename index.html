@@ -11,7 +11,7 @@
 	<script src="scripts.js"></script>
   </head>
   <body>
-    <a-scene background="color: #2090A0">
+    <a-scene background="color: #2090A0" correct-gamma>
       <a-assets>
         <a-asset-item id="level" src="Level_28.glb"></a-asset-item>
         <a-asset-item id="armadillo" src="armadillo.glb"></a-asset-item>
@@ -50,7 +50,7 @@
 	  <a-gltf-model look-at="0 0 0" position="1.12024 1.44018 -0.34314" src="#armadillo"></a-gltf-model>
 	  -->
 	  
-      <a-text timer="false" id="timer" value="1:00" align="center" position="0.302 0.685 -2.450" color="black" scale="3 3 3"></a-text>
+      <a-text timer="false" id="timer" value="1:00" align="center" position="0.302 0.685 -2.450" color="white" scale="3 3 3"></a-text>
 	  
       <a-text id="score" score value="0" align="center" position="0.0 0.05 0" color="black" scale="5 5 5" rotation="270 90 270"></a-text>
 	  
