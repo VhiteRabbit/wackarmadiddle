@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wackarmadiddle</title>
+    <meta name="description" content="Wackarmadiddle">
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+
+    <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
+	<script src="https://unpkg.com/aframe-look-at-component@0.5.1/dist/aframe-look-at-component.min.js"></script> 
+	<script src="scripts.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #2090A0">
+      <a-assets>
+        <a-asset-item id="level" src="Level_28.glb"></a-asset-item>
+        <a-asset-item id="armadillo" src="armadillo.glb"></a-asset-item>
+      </a-assets>
+      	  <a-entity game-manager></a-entity>
+
+	<a-gltf-model src="#level"></a-gltf-model>
+	<!--  <a-gltf-model look-at="0 0 0" position="-0.46024 0.43058 -0.92588" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="-1.19726 0.28986 -0.67284" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="-1.23825 0.28234 0.52940" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="-0.98187 0.25601 1.23786" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="-0.25130 0.32843 1.49978" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="-0.25130 0.32843 1.49978" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="0.44158 0.33252 1.01640" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="1.14151 0.19230 1.07521" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="1.49075 0.32847 0.10647" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="1.69524 0.31715 -0.41135" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="1.08046 0.26422 -1.14151" src="#armadillo"></a-gltf-model>
+
+	  <a-gltf-model look-at="0 0 0" position="-1.02931 0.87022 -0.78663" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="-1.41416 0.91802 -0.34148" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="-1.05239 0.89277 0.26526" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="-1.04791 0.91710 0.99895" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="-0.85960 1.16636 1.49199" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="-0.03963 1.05628 1.47910" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="0.53958 1.13737 1.28999" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="1.14150 1.06304 1.06912" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="1.39145 1.27896 0.18262" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="1.38151 0.99329 -0.29432" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="0.92318 1.00883 -1.05192" src="#armadillo"></a-gltf-model>
+
+	  <a-gltf-model look-at="0 0 0" position="0.25559 1.24071 -0.46539" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="-0.60127 1.18955 -0.34826" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="-0.74047 1.28953 0.25492" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="-0.26752 1.30594 0.12327" src="#armadillo"></a-gltf-model>
+	  <a-gltf-model look-at="0 0 0" position="1.12024 1.44018 -0.34314" src="#armadillo"></a-gltf-model>
+	  -->
+	  
+      <a-text timer="false" id="timer" value="1:00" align="center" position="0.302 0.685 -2.450" color="black" scale="3 3 3"></a-text>
+	  
+      <a-text id="score" score value="0" align="center" position="0.0 0.05 0" color="black" scale="5 5 5" rotation="270 90 270"></a-text>
+	  
+	  <a-entity id="origin"><a-entity>
+	  
+	  <a-entity id="start" position="0 0 4">
+			<a-text value="Start" align="center" position="0 0.45 -5.5" color="black" scale="2 2 2"></a-text>
+			<a-plane class="clickable" start-button position="0 0.45 -5.6" rotation="0 -0.193 0" scale="1.3 0.665 1"></a-plane>
+	  </a-entity>
+		
+      <a-entity>
+        <a-camera position="0 0.3 0">
+			<a-entity raycaster="objects: .clickable; far: 150"
+			  cursor="fuse: true; fuseTimeout: 150"
+			  position="0 0 -0.3"
+			  geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.008"
+			  material="color: white; shader: flat"
+			>
+			  <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" fill="backwards" from="1 1 1" to="1.5 1.5 1.5" dur="150"></a-animation>
+			</a-entity>
+		</a-camera>
+       <a-entity id="left" super-hands hand-controls="left"></a-entity>
+       <a-entity line-up id="right" super-hands  hand-controls="right"></a-entity>
+      </a-entity>
+ 
+    </a-scene>
+  </body>
+</html>
