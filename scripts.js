@@ -54,7 +54,7 @@ AFRAME.registerComponent('game-manager', {
 
 	for(var i = 0; i < 20; i++){
 		var el = document.createElement('a-gltf-model');
-		var sceneEl = document.querySelector('a-scene');
+		var sceneEl = document.querySelector('a-scene').querySelector('#armadillo-parent');
 		
 		var rand = Math.floor(Math.random() * positions.length);
 		while(spawnedAtPosition[rand])
@@ -156,18 +156,19 @@ AFRAME.registerComponent('start-button', {
 		var defaultColor = 'grey';
 
 		el.addEventListener('click', function (e) {			
-			console.log('clicked');
 			StartGame();
-			el.parentNode.parentNode.removeChild(el.parentNode);
+			el.parentNode.removeChild(el);
+			var logo = document.querySelector('a-scene').querySelector('#intro-logo');
+			logo.parentNode.removeChild(logo);
 		});
 		  
-		el.addEventListener('mouseenter', function () {
+		/*el.addEventListener('mouseenter', function () {
 			el.setAttribute('color', data.color);
 		});
 
 		el.addEventListener('mouseleave', function () {
 			el.setAttribute('color', defaultColor);
-		});
+		});*/
 	}
 });
 
