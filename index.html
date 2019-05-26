@@ -15,7 +15,8 @@
       <a-assets>
         <a-asset-item id="intro" src="intro.glb"></a-asset-item>
         <a-asset-item id="intro-button" src="intro_button.glb"></a-asset-item>
-        <a-asset-item id="level" src="Level_28.glb"></a-asset-item>
+        <a-asset-item id="intro-exit" src="intro_exit.glb"></a-asset-item>
+		<a-asset-item id="level" src="Level_28.glb"></a-asset-item>
         <a-asset-item id="armadillo" src="armadillo.glb"></a-asset-item>
 		
 		<audio id="giggle" crossorigin="anonymous" src="audio/giggle.ogg"></audio>
@@ -26,7 +27,8 @@
 	  <a-gltf-model src="#level"></a-gltf-model>
 	  <a-gltf-model id="intro-logo" src="#intro" position="-1 0 0"></a-gltf-model>
 	  <a-gltf-model start-button class="clickable" src="#intro-button" position="-1 0 0"></a-gltf-model>
-	
+	  <a-gltf-model id="exit" exit-button class="clickable" src="#intro-exit" position="-1 0 0"></a-gltf-model>
+
 	  <a-sound id="giggle-sound" src="#giggle" position="0 1 0"></a-sound>
  	  <a-sound id="whack-sound" src="#whack" position="0 1 0"></a-sound>
 	  

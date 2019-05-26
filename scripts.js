@@ -159,6 +159,32 @@ AFRAME.registerComponent('start-button', {
 			StartGame();
 			el.parentNode.removeChild(el);
 			var logo = document.querySelector('a-scene').querySelector('#intro-logo');
+			var exit = document.querySelector('a-scene').querySelector('#exit');
+
+			logo.parentNode.removeChild(logo);
+			exit.parentNode.removeChild(exit);
+		});
+		  
+		/*el.addEventListener('mouseenter', function () {
+			el.setAttribute('color', data.color);
+		});
+
+		el.addEventListener('mouseleave', function () {
+			el.setAttribute('color', defaultColor);
+		});*/
+	}
+});
+
+AFRAME.registerComponent('start-button', {
+	init: function () {
+		var data = this.data;
+		var el = this.el;
+		var defaultColor = 'grey';
+
+		el.addEventListener('click', function (e) {			
+			StartGame();
+			el.parentNode.removeChild(el);
+			var logo = document.querySelector('a-scene').querySelector('#intro-logo');
 			logo.parentNode.removeChild(logo);
 		});
 		  
